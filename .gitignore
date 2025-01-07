@@ -1,0 +1,58 @@
+# Node.js dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Logs
+logs/
+*.log
+*.log.*
+log/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# OS-generated files
+.DS_Store
+Thumbs.db
+
+# IDE/editor-specific files
+.vscode/
+.idea/
+*.swp
+*.swo
+*.sublime-project
+*.sublime-workspace
+
+# Frontend build artifacts
+client/build/
+client/dist/
+client/.cache/
+client/.next/
+
+# Backend build artifacts
+server/dist/
+server/.cache/
+
+# Smart contracts build artifacts
+smart-contracts/build/
+smart-contracts/cache/
+smart-contracts/artifacts/
+
+# Truffle and Hardhat-specific files
+.smart_contracts.log
+.truffle/
+hardhat.config.ts
+
+# Blockchain keys
+*.key
+*.pem
+*.crt
+
+# Miscellaneous
+*.bak
+*.tmp
+*.old
