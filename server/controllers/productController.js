@@ -8,12 +8,11 @@ const getProduct = async (req, res) => {
         if (!mongoose.Types.ObjectId.isValid(id)) {
             return res.status(400).json({ error: 'Invalid product ID format' });
         }
-
+        //find product based on id
         const product = await Product.findById(id);
         if (!product) {
             return res.status(404).json({ error: 'Product not found' });
         }
-
         res.status(200).json(product);
     } catch (error) {
         console.error('Error fetching product:', error);
@@ -21,7 +20,7 @@ const getProduct = async (req, res) => {
     }
 };
 
-//
+//gets all products regardless of id or status.
 const getAllProducts = async (req, res) => {
     try {
         const products = await Product.find();
@@ -32,7 +31,7 @@ const getAllProducts = async (req, res) => {
     }
 };
 
-//
+//gets products based on their active status.
 const getActiveProducts = async (req, res) => {
     try {
         const activeProducts = await Product.find({ isActive: true });
@@ -43,7 +42,7 @@ const getActiveProducts = async (req, res) => {
     }
 };
 
-//
+//gets products based on them being inactive.
 const getInactiveProducts = async (req, res) => {
     try {
         const inactiveProducts = await Product.find({ isActive: false });
@@ -54,7 +53,7 @@ const getInactiveProducts = async (req, res) => {
     }
 };
 
-//
+//updates product by finding its id and changing its status to false default is true.
 const archiveProduct = async (req, res) => {
     const { id } = req.params;
 
@@ -74,6 +73,7 @@ const archiveProduct = async (req, res) => {
     }
 };
 
+//adds quality check status will be immutable in the future.
 const addQualityCheck = async (req, res) => {
     const { productId, qualityStatus } = req.body;
 
