@@ -8,6 +8,7 @@ const QualityCheckSchema = new mongoose.Schema({
 const ProductSchema = new mongoose.Schema({
     name: String,
     qualityChecks: [QualityCheckSchema],
-}, { collection: 'block-QA' }); // Specify the collection name explicitly
+    isActive: { type: Boolean, default: true },
+}, { collection: 'block-QA' }); 
 
 module.exports = mongoose.model('Product', ProductSchema);
